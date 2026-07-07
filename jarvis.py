@@ -60,7 +60,7 @@ def wish():
         speck(f"Good Afternoon Sir... its {times}")
     else:
         speck(f"Good Evening Sir... its {times}")
-    if  "04/16/" in Time:
+    if  "" in Time: # Birtha day date:- Month/Date
         with open('Birthaday.txt','r') as file:
             reed = file.read()
             if not reed: 

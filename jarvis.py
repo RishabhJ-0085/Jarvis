@@ -61,15 +61,15 @@ def wish():
     else:
         speck(f"Good Evening Sir... its {times}")
     if  "04/16/" in Time:
-        with open('Python Code\\JARVIS\\Birthaday.txt','r') as file:
+        with open('Birthaday.txt','r') as file:
             reed = file.read()
             if not reed: 
                 speck("Wish you very very Happy birthday! sir this is for you")
                 os.system(f"start chrome.exe {kit.playonyt("Happy birthaday song")}")
-                with open('Python Code\\JARVIS\\Birthaday.txt','a') as file:
+                with open('Birthaday.txt','a') as file:
                     file.write("ok")
     else:
-         with open('Python Code\\JARVIS\\Birthaday.txt','w') as file:
+         with open('Birthaday.txt','w') as file:
             file.close()
     speck("How can I help you")
 def scheduled ():
@@ -79,7 +79,7 @@ def scheduled ():
         asked = TakeCommand().lower()
         if "yes" in asked or "han" in asked:
             speck("Ok sir old task clear")
-            file = open('Python Code\\JARVIS\\Scheduled.txt','w')
+            file = open('Scheduled.txt','w')
         else:
             speck("Ok sir")
         speck("Sir please Enter Number of task")
@@ -88,14 +88,14 @@ def scheduled ():
            speck(f"sir say No{i} task")
            askeds = TakeCommand().lower()
            #Scheduled.append(askeds)
-           file = open('Python Code\\JARVIS\\Scheduled.txt','a')
+           file = open('Scheduled.txt','a')
            file.write(f"{i+1}.{askeds}\n")
         speck("schedule saved")
         file.close()
     except Exception:
         speck("Sorry sir try again")
 def chrome(search):
-    chromePath = "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"  
+    chromePath = "ADD Chrome location Path"  
     wbe.register('chrome', None, wbe.BackgroundBrowser(chromePath))  
     web = wbe.get('chrome')  
     web.open(f"https://www.google.com/search?q={search}")
@@ -136,7 +136,7 @@ def Arduino():
         speck("please connect Arduino")
 def pdf(PDF_Read):
     # Open the PDF file in read-binary mode
-    pdf_path = 'C:\\Users\\jaisw\\Downloads\\{PDF_Read}.pdf'
+    pdf_path = 'path of all pdf location\\{PDF_Read}.pdf'
     
     # Check if the file exists
     if os.path.exists(pdf_path):
@@ -169,7 +169,7 @@ def pdf(PDF_Read):
         speck(f"File not found. Please check the file path.")
     
 def location(numbers):
-    key = "2ef0bd6a90d34d4aa09faf3fdd5a0f93"
+    key = "Add KEY"
     phone_number = num.parse(numbers)
     phone1 = geocoder.description_for_number(phone_number,"en")
     phone2 = carrier.name_for_number(phone_number,"en")
@@ -182,7 +182,7 @@ def location(numbers):
     """print(lat,lng)"""
     myMap = folium.Map(location=[lat,lng],zoom_start=10)
     folium.Marker([lat,lng],popup = phone1).add_to(myMap)
-    myMap.save("JARVIS\\Locastion.html")
+    myMap.save("Locastion.html")
 def takeCommand():
     wish()
     while True:
@@ -277,9 +277,9 @@ def takeCommand():
                 os.system(f"start chrome.exe www.youtube.com/results?search_query={query}")
         elif "favourite song" in query or "my favourite song" in query:
             speck("ok sir playing your favourite song")
-            """ music_dir = "C:\\Users\\jaisw\\Music"
+            """ music_dir = ""
             rn = random.choice(music_dir)"""
-            os.startfile("C:\\Users\\jaisw\\Music\\Spotify.mp3")
+            os.startfile("fill Name")
         elif "generate password" in query or "make passward" in query:
             speck("Sir witch password you want to make it Number or Character")
             ask = TakeCommand().lower()
@@ -321,7 +321,7 @@ def takeCommand():
         elif "make schedule" in query or "make my schedule" in query:
             scheduled()
         elif "show my schedule" in query or "what is my schedule" in query:
-            file = open('Python Code\\JARVIS\\Scheduled.txt','r')
+            file = open('Scheduled.txt','r')
             a = file.read()
             print(a)
             speck(a)
@@ -406,7 +406,7 @@ def takeCommand():
               speck("OK sir tracking this number")
               location(number)
               speck("Sir location track Successfully you see that")
-              os.startfile("Python Code\\JARVIS\\locastion.html")
+              os.startfile("locastion.html")
             except Exception as e:
                 speck(e)
                 print(e)
@@ -482,17 +482,17 @@ def takeCommand():
             speck("Sir can i replace this to old text")
             ask =  TakeCommand().lower()
             if "nahin" in ask or "no" in ask or "mat karo" in ask:
-               Write = open('JARVIS\\Remember.txt','a')
+               Write = open('Remember.txt','a')
                Write.write(f"{Remember}\n")
                Write.close() 
             elif "yes" in ask or "han" in ask:
-                Write = open('Python Code\\JARVIS\\Remember.txt','w')
-                Write = open('Python Code\\JARVIS\\Remember.txt','a')
+                Write = open('Remember.txt','w')
+                Write = open('Remember.txt','a')
                 Write.write(f"{Remember}\n")
                 Write.close() 
             speck(f"Sir i remember{Remember}")
         elif "what you remember" in query or "yad rakhne" in query:
-            Write = open("Python Code\\JARVIS\\Remember.txt","r")
+            Write = open("Remember.txt","r")
             Remember = Write.read()
             print(Remember)
             speck("you told me Remember that"+Remember)
@@ -524,7 +524,7 @@ def takeCommand():
                 except Exception as e:
                     speck("Sorry sir, but i am not able to find this")
         elif "who create you" in query or " tumko kisne banaya" in query or "who make you" in query:
-            speck("He is biggest fan Iron man,.. The one anonly,.. RJ Rishabh Jaiswal")
+            speck("He is biggest fan Iron man,.. The one anonly,.. Name")
         elif "learn" in query:
             Remove = ["jarvis","learn","karo"]
             for word in Remove:
@@ -539,7 +539,7 @@ def takeCommand():
                 else:
                     speck("Ok sir say what i learn?")
                     learn = TakeCommand().lower()
-            with open("Python Code\\JARVIS\\learn.txt",'a') as file:
+            with open("learn.txt",'a') as file:
                 file.write(f"{learn}\n")
                 speck("done sir")
         else:
@@ -548,7 +548,7 @@ def takeCommand():
                 query = query.replace(word,"")
             query = query.strip()
             New_Line = []
-            with open("Python Code\\JARVIS\\learn.txt",'r') as file:
+            with open("learn.txt",'r') as file:
                 lines = file.readlines()
                 for line in lines:
                     if query in line:

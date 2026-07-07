@@ -237,7 +237,7 @@ def takeCommand():
         elif "joke" in query:
             j = jk.get_joke()
             print(j)
-            speck(j)
+            speck("her is joke "+j)
         elif "bad" in query:
             speck("Sorry sir but i try my best")
         elif "good" in query or "nice" in query:

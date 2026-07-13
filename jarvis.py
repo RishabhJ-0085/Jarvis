@@ -61,15 +61,15 @@ def wish():
     else:
         speck(f"Good Evening Sir... its {times}")
     if  "04/16/" in Time:
-        with open('Python Code\\JARVIS\\Birthaday.txt','r') as file:
+        with open('Birthaday.txt','r') as file:
             reed = file.read()
             if not reed: 
                 speck("Wish you very very Happy birthday! sir this is for you")
                 os.system(f"start chrome.exe {kit.playonyt("Happy birthaday song")}")
-                with open('Python Code\\JARVIS\\Birthaday.txt','a') as file:
+                with open('Birthaday.txt','a') as file:
                     file.write("ok")
     else:
-         with open('Python Code\\JARVIS\\Birthaday.txt','w') as file:
+         with open('Birthaday.txt','w') as file:
             file.close()
     speck("How can I help you")
 def scheduled ():
@@ -79,7 +79,7 @@ def scheduled ():
         asked = TakeCommand().lower()
         if "yes" in asked or "han" in asked:
             speck("Ok sir old task clear")
-            file = open('Python Code\\JARVIS\\Scheduled.txt','w')
+            file = open('Scheduled.txt','w')
         else:
             speck("Ok sir")
         speck("Sir please Enter Number of task")
@@ -88,7 +88,7 @@ def scheduled ():
            speck(f"sir say No{i} task")
            askeds = TakeCommand().lower()
            #Scheduled.append(askeds)
-           file = open('Python Code\\JARVIS\\Scheduled.txt','a')
+           file = open('Scheduled.txt','a')
            file.write(f"{i+1}.{askeds}\n")
         speck("schedule saved")
         file.close()
@@ -182,7 +182,7 @@ def location(numbers):
     """print(lat,lng)"""
     myMap = folium.Map(location=[lat,lng],zoom_start=10)
     folium.Marker([lat,lng],popup = phone1).add_to(myMap)
-    myMap.save("JARVIS\\Locastion.html")
+    myMap.save("Locastion.html")
 def takeCommand():
     wish()
     while True:
@@ -321,7 +321,7 @@ def takeCommand():
         elif "make schedule" in query or "make my schedule" in query:
             scheduled()
         elif "show my schedule" in query or "what is my schedule" in query:
-            file = open('Python Code\\JARVIS\\Scheduled.txt','r')
+            file = open('Scheduled.txt','r')
             a = file.read()
             print(a)
             speck(a)
@@ -482,17 +482,17 @@ def takeCommand():
             speck("Sir can i replace this to old text")
             ask =  TakeCommand().lower()
             if "nahin" in ask or "no" in ask or "mat karo" in ask:
-               Write = open('JARVIS\\Remember.txt','a')
+               Write = open('Remember.txt','a')
                Write.write(f"{Remember}\n")
                Write.close() 
             elif "yes" in ask or "han" in ask:
-                Write = open('Python Code\\JARVIS\\Remember.txt','w')
-                Write = open('Python Code\\JARVIS\\Remember.txt','a')
+                Write = open('Remember.txt','w')
+                Write = open('Remember.txt','a')
                 Write.write(f"{Remember}\n")
                 Write.close() 
             speck(f"Sir i remember{Remember}")
         elif "what you remember" in query or "yad rakhne" in query:
-            Write = open("Python Code\\JARVIS\\Remember.txt","r")
+            Write = open("Remember.txt","r")
             Remember = Write.read()
             print(Remember)
             speck("you told me Remember that"+Remember)
@@ -539,7 +539,7 @@ def takeCommand():
                 else:
                     speck("Ok sir say what i learn?")
                     learn = TakeCommand().lower()
-            with open("Python Code\\JARVIS\\learn.txt",'a') as file:
+            with open("learn.txt",'a') as file:
                 file.write(f"{learn}\n")
                 speck("done sir")
         else:
@@ -548,7 +548,7 @@ def takeCommand():
                 query = query.replace(word,"")
             query = query.strip()
             New_Line = []
-            with open("Python Code\\JARVIS\\learn.txt",'r') as file:
+            with open("learn.txt",'r') as file:
                 lines = file.readlines()
                 for line in lines:
                     if query in line:

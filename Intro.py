@@ -11,11 +11,11 @@ def play_gif():
     root.lift()
     root.attributes("-topmost",True)
     #global img
-    img = Image.open('Python Code\\JARVIS\\JARVIS.gif')
+    img = Image.open('JARVIS.gif')
     lbl = Label(root)
     lbl.place(x=0,y=0)
     i=0
-    mixer.music.load('Python Code\\JARVIS\\JARVIS AUDIO.wav')
+    mixer.music.load('JARVIS AUDIO.wav')
     mixer.music.play()
     
     for img in ImageSequence.Iterator(img):

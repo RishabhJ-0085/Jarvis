@@ -15,5 +15,4 @@ SpeechRecognition
 phonenumbers
 folium
 opencage
-Pillow
-pygame
+Pillowpygame

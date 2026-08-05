@@ -6,7 +6,7 @@ FLAG_FILE = ".requirements_installed"
 
 # Agar pehle install ho chuki hain to dobara install mat karo
 if os.path.exists(FLAG_FILE):
-    with open("Install_requirements.txt",'r') as New_lib:
+    with open("Install_packages.txt",'r') as New_lib:
         New_lib = New_lib.read().splitlines()
         with open("requirements.txt",'r') as old_lib:
             Old_lib = old_lib.read().splitlines()
@@ -33,11 +33,11 @@ else:
         "pip",
         "install",
         "-r",
-        "install_requirements.txt"
+        "install_packages.txt"
     ])
     with open(FLAG_FILE, "w") as f:
         f.write("Installed")
-    with open("Install_requirements.txt",'r') as New_lib:
+    with open("Install_packages.txt",'r') as New_lib:
         New_lib = New_lib.read().splitlines()
         with open('requirements.txt', 'w') as fill:
             for i in New_lib:

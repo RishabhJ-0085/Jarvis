@@ -1,3 +1,5 @@
+import install_requirements
+
 import pyttsx3 # if you install old version try this pip install [package name]==version : current Version: 2.90
 import datetime # if you upgrade library try this pip install [package name] --upgrade
 import os

@@ -185,7 +185,7 @@ def location(numbers):
     myMap = folium.Map(location=[lat,lng],zoom_start=10)
     folium.Marker([lat,lng],popup = phone1).add_to(myMap)
     myMap.save("Locastion.html")
-def takeCommand():
+def takeCommand(query):
     wish()
     while True:
         query = TakeCommand().lower()
@@ -400,7 +400,7 @@ def takeCommand():
             os.system("start cmd")
         elif "sleep" in query or "so jao" in query or "good night" in query:
             speck("OK Sir you can call me any time")
-            break
+            return query
         elif "location" in query:
             speck("sir please enter number with contery number")
             try:                
@@ -572,7 +572,14 @@ if __name__ == '__main__':
     while True:
         permission = TakeCommand().lower()
         if "wake up" in permission or "utho" in permission:
-            takeCommand()
+           permission= takeCommand(queue)
+           if "system" in permission:
+               hour = datetime.datetime.now().hour
+               if hour>=16:
+                   speck("OK sir good night")
+               else:
+                   speck("Ok sir have nice day")
+               break
         elif "system" in permission:
             hour = datetime.datetime.now().hour
             if hour>=16:
